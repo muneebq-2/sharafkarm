@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="home" className="pt-20 pb-16 gradient-bg relative overflow-hidden">
+    <section id="home" className="pt-28 pb-16 gradient-bg relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse-slow"></div>
@@ -22,10 +22,10 @@ const Hero: React.FC = () => {
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center relative">
+        <div className="lg:grid lg:grid-cols-2 lg:gap-20 items-center relative">
           {/* Content */}
           <div className="animate-fade-in-up">
-            <h1 className="text-4xl lg:text-6xl font-bold text-dark-800 leading-tight mb-6">
+            <h1 className="text-4xl lg:text-6xl font-bold text-dark-800 leading-tight mb-10">
               Building Excellence in
               <span className="text-gradient block">Civil Engineering</span>
             </h1>

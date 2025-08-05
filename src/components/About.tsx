@@ -1,67 +1,87 @@
 import React from 'react';
-import { Users, BookOpen, Briefcase, Target } from 'lucide-react';
+import { Users, BookOpen, Briefcase, Target, Linkedin, Mail } from 'lucide-react';
 
 const About: React.FC = () => {
   const teamMembers = [
     {
-      name: "Ahmed Hassan",
+      name: "Syed Muhammad Asad",
       role: "Structural Design Specialist",
       description: "Expert in structural analysis and design with focus on modern construction techniques.",
-      image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
+      image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop",
+      linkedin: "https://linkedin.com/",
+      email: "mailto:s.asad@example.com"
     },
     {
-      name: "Sarah Mohammed",
+      name: "Ahmed Khan",
       role: "Quantity Surveyor",
       description: "Specializes in cost estimation and quantity surveying for large-scale projects.",
-      image: "https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
+      image: "https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop",
+      linkedin: "https://linkedin.com/",
+      email: "mailto:a.khan@example.com"
     },
     {
       name: "Omar Ali",
       role: "Project Manager",
       description: "Expert in project planning and management using MS Project and Primavera.",
-      image: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
+      image: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop",
+      linkedin: "https://linkedin.com/",
+      email: "mailto:o.ali@example.com"
     },
     {
       name: "Fatima Ibrahim",
       role: "Contract Management",
       description: "Specializes in construction contract management and legal compliance.",
-      image: "https://images.pexels.com/photos/3778966/pexels-photo-3778966.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
+      image: "https://images.pexels.com/photos/3778966/pexels-photo-3778966.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop",
+      linkedin: "https://linkedin.com/",
+      email: "mailto:f.ibrahim@example.com"
     },
     {
       name: "Khalid Ahmed",
       role: "Site Engineer",
       description: "Field expert with extensive experience in construction supervision.",
-      image: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
+      image: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop",
+      linkedin: "https://linkedin.com/",
+      email: "mailto:k.ahmed@example.com"
     },
     {
       name: "Noura Salem",
       role: "CAD Specialist",
       description: "Proficient in AutoCAD, Revit, and other design software for technical drawings.",
-      image: "https://images.pexels.com/photos/3785074/pexels-photo-3785074.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
+      image: "https://images.pexels.com/photos/3785074/pexels-photo-3785074.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop",
+      linkedin: "https://linkedin.com/",
+      email: "mailto:n.salem@example.com"
     },
     {
       name: "Yusuf Omar",
       role: "Environmental Engineer",
       description: "Focuses on sustainable construction practices and environmental compliance.",
-      image: "https://images.pexels.com/photos/2182969/pexels-photo-2182969.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
+      image: "https://images.pexels.com/photos/2182969/pexels-photo-2182969.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop",
+      linkedin: "https://linkedin.com/",
+      email: "mailto:y.omar@example.com"
     },
     {
       name: "Amina Rashid",
       role: "Quality Control",
       description: "Ensures quality standards and compliance throughout project lifecycle.",
-      image: "https://images.pexels.com/photos/3778965/pexels-photo-3778965.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
+      image: "https://images.pexels.com/photos/3778965/pexels-photo-3778965.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop",
+      linkedin: "https://linkedin.com/",
+      email: "mailto:a.rashid@example.com"
     },
     {
       name: "Hassan Abdullah",
       role: "Transportation Engineer",
       description: "Specializes in transportation infrastructure and traffic management systems.",
-      image: "https://images.pexels.com/photos/2379003/pexels-photo-2379003.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
+      image: "https://images.pexels.com/photos/2379003/pexels-photo-2379003.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop",
+      linkedin: "https://linkedin.com/",
+      email: "mailto:h.abdullah@example.com"
     },
     {
       name: "Layla Mansour",
       role: "Water Resources Engineer",
       description: "Expert in hydraulic systems, water supply, and drainage infrastructure.",
-      image: "https://images.pexels.com/photos/3785076/pexels-photo-3785076.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
+      image: "https://images.pexels.com/photos/3785076/pexels-photo-3785076.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop",
+      linkedin: "https://linkedin.com/",
+      email: "mailto:l.mansour@example.com"
     }
   ];
 
@@ -137,6 +157,14 @@ const About: React.FC = () => {
               <h4 className="text-lg font-bold text-dark-800 mb-1">{member.name}</h4>
               <p className="text-primary-700 font-semibold text-sm mb-3">{member.role}</p>
               <p className="text-dark-600 text-sm leading-relaxed">{member.description}</p>
+              <div className="mt-4 flex justify-center space-x-4">
+                <a href={member.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`${member.name}'s LinkedIn`} className="text-dark-500 hover:text-primary-700 transition-colors">
+                  <Linkedin className="h-5 w-5" />
+                </a>
+                <a href={member.email} aria-label={`Email ${member.name}`} className="text-dark-500 hover:text-primary-700 transition-colors">
+                  <Mail className="h-5 w-5" />
+                </a>
+              </div>
             </div>
           ))}
         </div>
