@@ -11,8 +11,7 @@ const Footer: React.FC = () => {
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-xl font-bold mb-4">Your Company</h3>
             <p className="text-gray-300 mb-4">
-              Building amazing digital experiences with modern technologies.
-              We create innovative solutions that help businesses grow.
+              Building amazing 
             </p>
             <div className="flex space-x-4">
               <a 
