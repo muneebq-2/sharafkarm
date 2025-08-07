@@ -9,7 +9,7 @@ const About: React.FC = () => {
       description: "Sets vision and strategy, leads company direction, manages partnerships, and oversees overall performance.",
       image: "images/asad.jpg",
       linkedin: "http://www.linkedin.com/in/syedasadmohammad",
-      email: "mailto:asdsydmhd79@gmail.com"
+      email: "asdsydmhd79@gmail.com"
     },
     {
       name: "Khadija Javed",
@@ -17,7 +17,7 @@ const About: React.FC = () => {
       description: "Manages daily workflow, team coordination, project delivery timelines, and service quality",
       image: "images/Khadija.jpg",
       linkedin: "http://linkedin.com/in/khadija-javed-083579347",
-      email: "mailto:khadijajaved450@gmail.com"
+      email: "khadijajaved450@gmail.com"
     },
     {
       name: "Muhammad Abdullah",
@@ -25,7 +25,7 @@ const About: React.FC = () => {
       description: "Grows the client base, builds brand presence online (LinkedIn, website, etc.), and handles proposals and sales funnels.",
       image: "images/Abdullah.jpg",
       linkedin: "https://www.linkedin.com/in/muhammad-abdullah-b51503313?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-      email: "mailto:abdullahjutt1027@gmail.com"
+      email: "abdullahjutt1027@gmail.com"
     },
     {
       name: "Alisha Ahsan",
@@ -33,7 +33,7 @@ const About: React.FC = () => {
       description: "Sales funnel, cold outreach, client targeting.",
       image: "images/Alisha.jpg",
       linkedin: "https://www.linkedin.com/in/alishaahsan/",
-      email: "mailto:alishaahsan67@gmail.com"
+      email: "alishaahsan67@gmail.com"
     },
     {
       name: "Moaziz Ali Khan",
@@ -41,7 +41,7 @@ const About: React.FC = () => {
       description: "Handles pricing strategy, invoicing, expense tracking, payments, budgeting, and financial reporting.",
       image: "images/moaziz.jpg",
       linkedin: "https://www.linkedin.com/in/moaziz-ali-khan-a8b001379",
-      email: "mailto:moaziz.ali.khan1318@gmail.com"
+      email: "moaziz.ali.khan1318@gmail.com"
     },
     {
       name: "Reaan Abid",
@@ -49,7 +49,7 @@ const About: React.FC = () => {
       description: "Oversees contract drafting, review, negotiation, compliance, and risk management for clients and vendors.",
       image: "images/ReaanA.jpg",
       linkedin: "http://linkedin.com/in/reaan-abid-563970141",
-      email: "mailto:reaanabid123@gmail.com"
+      email: "reaanabid123@gmail.com"
     },
     {
       name: "Rayan Amin",
@@ -57,7 +57,7 @@ const About: React.FC = () => {
       description: "Leads architectural, structural, and MEP design output (AutoCAD, Revit, etc.) and supervises design deliverables.",
       image: "images/Rayyan.jpg",
     //  linkedin: "https://www.linkedin.com/in/rayan-amin/",
-      email: "mailto:rayyanamin2k19@gmail.com"
+      email: "rayyanamin2k19@gmail.com"
     },
     {
       name: "Shaheer Umar",
@@ -65,7 +65,7 @@ const About: React.FC = () => {
       description: "Supervises technical quality, design engineering, and compliance with codes.",
       image: "images/Shaheer.jpg",
       linkedin: "http://linkedin.com/in/shaheer-umar",
-      email: "mailto:shaheerumar23@gmail.com"
+      email: "shaheerumar23@gmail.com"
     },
     {
       name: "Hisham Khan",
@@ -73,7 +73,7 @@ const About: React.FC = () => {
       description: "Provides expert input on project planning, scheduling (Primavera/MS Project), and technical consultancy.",
       image: "images/Hisham.jpg",
       linkedin: "https://www.linkedin.com/in/hisham-khan-9a50b1365?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-      email: "mailto:hishamkhanma@gmail.com"
+      email: "hishamkhanma@gmail.com"
     },
     {
       name: "Muhammad Faseeh",
@@ -81,7 +81,7 @@ const About: React.FC = () => {
       description: "Manages estimation work, quantity take-offs, and cost breakdowns using tools like Bluebeam, Planswift, or Excel.",
       image: "images/Faseeh.jpg",
       // linkedin: "https://www.instagram.com/faseehlicious?igsh=aXg3dnljNXB6OGxl",
-      email: "mailto:Faseehlicious@gmail.com"
+      email: "Faseehlicious@gmail.com"
     }
   ];
 
@@ -161,9 +161,13 @@ const About: React.FC = () => {
                 <a href={member.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`${member.name}'s LinkedIn`} className="text-dark-500 hover:text-primary-700 transition-colors">
                   <Linkedin className="h-5 w-5" />
                 </a>
-                <a href={member.email} aria-label={`Email ${member.name}`} className="text-dark-500 hover:text-primary-700 transition-colors">
+                <button 
+                  onClick={() => window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${member.email}`, '_blank')} 
+                  className="text-dark-500 hover:text-primary-700 transition-colors"
+                  aria-label={`Email ${member.name}`}
+                >
                   <Mail className="h-5 w-5" />
-                </a>
+                </button>
               </div>
             </div>
           ))}
