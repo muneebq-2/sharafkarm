@@ -21,7 +21,7 @@ const About: React.FC = () => {
     },
     {
       name: "Muhammad Abdullah",
-      role: "Chief of marketing",
+      role: "Chief of Marketing",
       description: "Grows the client base, builds brand presence online (LinkedIn, website, etc.), and handles proposals and sales funnels.",
       image: "images/Abdullah.jpg",
       linkedin: "https://www.linkedin.com/in/muhammad-abdullah-b51503313?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -61,7 +61,7 @@ const About: React.FC = () => {
     },
     {
       name: "Shaheer Umar",
-      role: "Chief Technical officer",
+      role: "Chief Technical Officer",
       description: "Supervises technical quality, design engineering, and compliance with codes.",
       image: "images/Shaheer.jpg",
       linkedin: "http://linkedin.com/in/shaheer-umar",
@@ -69,7 +69,7 @@ const About: React.FC = () => {
     },
     {
       name: "Hisham Khan",
-      role: "Head project consultancy",
+      role: "Head Project Consultancy",
       description: "Provides expert input on project planning, scheduling (Primavera/MS Project), and technical consultancy.",
       image: "images/Hisham.jpg",
       linkedin: "https://www.linkedin.com/in/hisham-khan-9a50b1365?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
