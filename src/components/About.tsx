@@ -4,84 +4,84 @@ import { Users, BookOpen, Briefcase, Target, Linkedin, Mail } from 'lucide-react
 const About: React.FC = () => {
   const teamMembers = [
     {
-      name: "Syed Muhammad Asad",
-      role: "Structural Design Specialist",
-      description: "Expert in structural analysis and design with focus on modern construction techniques.",
-      image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop",
-      linkedin: "https://linkedin.com/",
-      email: "mailto:s.asad@example.com"
+      name: "Syed Mohammad Asad",
+      role: "Managing Partner",
+      description: "Sets vision and strategy, leads company direction, manages partnerships, and oversees overall performance.",
+      image: "images/asad.jpg",
+      linkedin: "http://www.linkedin.com/in/syedasadmohammad",
+      email: "mailto:asdsydmhd79@gmail.com"
     },
     {
-      name: "Ahmed Khan",
-      role: "Quantity Surveyor",
-      description: "Specializes in cost estimation and quantity surveying for large-scale projects.",
-      image: "https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop",
-      linkedin: "https://linkedin.com/",
-      email: "mailto:a.khan@example.com"
+      name: "Khadija Javed",
+      role: "Director of Services",
+      description: "Manages daily workflow, team coordination, project delivery timelines, and service quality",
+      image: "images/Khadija.jpg",
+      linkedin: "http://linkedin.com/in/khadija-javed-083579347",
+      email: "mailto:khadijajaved450@gmail.com"
     },
     {
-      name: "Omar Ali",
-      role: "Project Manager",
-      description: "Expert in project planning and management using MS Project and Primavera.",
-      image: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop",
-      linkedin: "https://linkedin.com/",
-      email: "mailto:o.ali@example.com"
+      name: "Muhammad Abdullah",
+      role: "Chief of marketing",
+      description: "Grows the client base, builds brand presence online (LinkedIn, website, etc.), and handles proposals and sales funnels.",
+      image: "images/Abdullah.jpg",
+      linkedin: "https://www.linkedin.com/in/muhammad-abdullah-b51503313?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      email: "mailto:abdullahjutt1027@gmail.com"
     },
     {
-      name: "Fatima Ibrahim",
-      role: "Contract Management",
-      description: "Specializes in construction contract management and legal compliance.",
-      image: "https://images.pexels.com/photos/3778966/pexels-photo-3778966.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop",
-      linkedin: "https://linkedin.com/",
-      email: "mailto:f.ibrahim@example.com"
+      name: "Alisha Ahsan",
+      role: "Head of Client Acquisition",
+      description: "Sales funnel, cold outreach, client targeting.",
+      image: "images/Alisha.jpg",
+      linkedin: "https://www.linkedin.com/in/alishaahsan/",
+      email: "mailto:alishaahsan67@gmail.com"
     },
     {
-      name: "Khalid Ahmed",
-      role: "Site Engineer",
-      description: "Field expert with extensive experience in construction supervision.",
-      image: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop",
-      linkedin: "https://linkedin.com/",
-      email: "mailto:k.ahmed@example.com"
+      name: "Moaziz Ali Khan",
+      role: "Head of finance",
+      description: "Handles pricing strategy, invoicing, expense tracking, payments, budgeting, and financial reporting.",
+      image: "images/moaziz.jpg",
+      linkedin: "https://www.linkedin.com/in/moaziz-ali-khan-a8b001379",
+      email: "mailto:moaziz.ali.khan1318@gmail.com"
     },
     {
-      name: "Noura Salem",
-      role: "CAD Specialist",
-      description: "Proficient in AutoCAD, Revit, and other design software for technical drawings.",
-      image: "https://images.pexels.com/photos/3785074/pexels-photo-3785074.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop",
-      linkedin: "https://linkedin.com/",
-      email: "mailto:n.salem@example.com"
+      name: "Reaan Abid",
+      role: "Head of contracts and legal affairs",
+      description: "Oversees contract drafting, review, negotiation, compliance, and risk management for clients and vendors.",
+      image: "images/ReaanA.jpg",
+      linkedin: "http://linkedin.com/in/reaan-abid-563970141",
+      email: "mailto:reaanabid123@gmail.com"
     },
     {
-      name: "Yusuf Omar",
+      name: "Rayan Amin",
       role: "Environmental Engineer",
-      description: "Focuses on sustainable construction practices and environmental compliance.",
-      image: "https://images.pexels.com/photos/2182969/pexels-photo-2182969.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop",
-      linkedin: "https://linkedin.com/",
-      email: "mailto:y.omar@example.com"
+      description: "Leads architectural, structural, and MEP design output (AutoCAD, Revit, etc.) and supervises design deliverables.",
+      image: "images/Rayyan.jpg",
+    //  linkedin: "https://www.linkedin.com/in/rayan-amin/",
+      email: "mailto:rayyanamin2k19@gmail.com"
     },
     {
-      name: "Amina Rashid",
-      role: "Quality Control",
-      description: "Ensures quality standards and compliance throughout project lifecycle.",
-      image: "https://images.pexels.com/photos/3778965/pexels-photo-3778965.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop",
-      linkedin: "https://linkedin.com/",
-      email: "mailto:a.rashid@example.com"
+      name: "Shaheer Umar",
+      role: "Chief Technical officer",
+      description: "Supervises technical quality, design engineering, and compliance with codes.",
+      image: "images/Shaheer.jpg",
+      linkedin: "http://linkedin.com/in/shaheer-umar",
+      email: "mailto:shaheerumar23@gmail.com"
     },
     {
-      name: "Hassan Abdullah",
-      role: "Transportation Engineer",
-      description: "Specializes in transportation infrastructure and traffic management systems.",
-      image: "https://images.pexels.com/photos/2379003/pexels-photo-2379003.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop",
-      linkedin: "https://linkedin.com/",
-      email: "mailto:h.abdullah@example.com"
+      name: "Hisham Khan",
+      role: "Head project consultancy",
+      description: "Provides expert input on project planning, scheduling (Primavera/MS Project), and technical consultancy.",
+      image: "images/Hisham.jpg",
+      linkedin: "https://www.linkedin.com/in/hisham-khan-9a50b1365?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+      email: "mailto:hishamkhanma@gmail.com"
     },
     {
-      name: "Layla Mansour",
-      role: "Water Resources Engineer",
-      description: "Expert in hydraulic systems, water supply, and drainage infrastructure.",
-      image: "https://images.pexels.com/photos/3785076/pexels-photo-3785076.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop",
-      linkedin: "https://linkedin.com/",
-      email: "mailto:l.mansour@example.com"
+      name: "Muhammad Faseeh",
+      role: "Head of Estimation",
+      description: "Manages estimation work, quantity take-offs, and cost breakdowns using tools like Bluebeam, Planswift, or Excel.",
+      image: "images/Faseeh.jpg",
+      // linkedin: "https://www.instagram.com/faseehlicious?igsh=aXg3dnljNXB6OGxl",
+      email: "mailto:Faseehlicious@gmail.com"
     }
   ];
 

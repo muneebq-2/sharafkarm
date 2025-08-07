@@ -25,9 +25,8 @@ const Hero: React.FC = () => {
         <div className="lg:grid lg:grid-cols-2 lg:gap-20 items-center relative">
           {/* Content */}
           <div className="animate-fade-in-up">
-            <h1 className="text-4xl lg:text-6xl font-bold text-dark-800 leading-tight mb-10">
-              Building Excellence in
-              <span className="text-gradient block">Civil Engineering</span>
+            <h1 className="text-4xl lg:text-6xl font-bold text-dark-800 leading-tight mb-8">
+              Building Excellence in <span className="text-gradient">Civil Engineering</span>
             </h1>
             <p className="text-lg text-dark-600 mb-8 leading-relaxed">
               SHARAFKARM Solutions is a dedicated civil engineering company focused on adding 
