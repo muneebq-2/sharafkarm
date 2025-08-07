@@ -37,7 +37,7 @@ const About: React.FC = () => {
     },
     {
       name: "Moaziz Ali Khan",
-      role: "Head of finance",
+      role: "Head of Finance",
       description: "Handles pricing strategy, invoicing, expense tracking, payments, budgeting, and financial reporting.",
       image: "images/moaziz.jpg",
       linkedin: "https://www.linkedin.com/in/moaziz-ali-khan-a8b001379",
@@ -45,7 +45,7 @@ const About: React.FC = () => {
     },
     {
       name: "Reaan Abid",
-      role: "Head of contracts and legal affairs",
+      role: "Head of Contracts and Legal Affairs",
       description: "Oversees contract drafting, review, negotiation, compliance, and risk management for clients and vendors.",
       image: "images/ReaanA.jpg",
       linkedin: "http://linkedin.com/in/reaan-abid-563970141",
@@ -53,7 +53,7 @@ const About: React.FC = () => {
     },
     {
       name: "Rayan Amin",
-      role: "Environmental Engineer",
+      role: "Head of Design",
       description: "Leads architectural, structural, and MEP design output (AutoCAD, Revit, etc.) and supervises design deliverables.",
       image: "images/Rayyan.jpg",
     //  linkedin: "https://www.linkedin.com/in/rayan-amin/",
