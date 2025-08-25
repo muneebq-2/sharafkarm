@@ -74,13 +74,13 @@ const Contact: React.FC = () => {
     {
       icon: <Phone className="h-6 w-6" />,
       label: "Phone",
-      value: "+1 (555) 123-4567",
-      href: "tel:+15551234567"
+      value: "+92 3045410966",
+      href: "tel:+92 3045410966"
     },
     {
       icon: <MapPin className="h-6 w-6" />,
       label: "Location",
-      value: "Engineering District, Tech City",
+      value: "NUST, Islamabad.",
       href: "#"
     }
   ];
@@ -218,11 +218,11 @@ const Contact: React.FC = () => {
               <div className="space-y-2 text-sm text-dark-600">
                 <div className="flex justify-between">
                   <span>Monday - Friday:</span>
-                  <span className="font-semibold">9:00 AM - 6:00 PM</span>
+                  <span className="font-semibold">9:00 AM - 10:00 PM</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Saturday:</span>
-                  <span className="font-semibold">10:00 AM - 4:00 PM</span>
+                  <span className="font-semibold">10:00 AM - 8:00 PM</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Sunday:</span>
