@@ -1,61 +1,61 @@
 import React from 'react';
-import { ExternalLink, Calendar, Users, Wrench } from 'lucide-react';
+import { Calendar, Wrench } from 'lucide-react';
 
 const Projects: React.FC = () => {
   const projects = [
     {
-      title: "Commercial Building Design",
-      category: "Structural Design",
-      description: "Complete structural design and analysis for a 5-story commercial building including foundation design, beam calculations, and seismic analysis.",
-      tools: ["AutoCAD", "ETABS", "SAFE", "MS Excel"],
-      duration: "3 months",
+      title: "Bar Bending Schedule",
+      category: "Structural Engineering",
+      description: "A detailed bar bending schedule for a 5-storey office building, including reinforcement detailing, bar length calculations, and steel quantity estimation for slab elements. Ensured compliance with structural drawings and optimized reinforcement layout for material efficiency.",
+      tools: ["PlanSwift", "MS Excel","AutoCad"],
+      duration: "1 week",
       teamSize: "4 engineers",
-      image: "https://images.pexels.com/photos/1109541/pexels-photo-1109541.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
+      image: "images/project1.jpg"
     },
     {
-      title: "Highway Infrastructure Planning",
-      category: "Transportation Engineering",
-      description: "Comprehensive planning and design for a 10km highway section including traffic analysis, pavement design, and drainage systems.",
-      tools: ["Civil 3D", "HCS", "Primavera", "ArcGIS"],
-      duration: "4 months",
-      teamSize: "6 engineers",
-      image: "https://images.pexels.com/photos/2837644/pexels-photo-2837644.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
-    },
-    {
-      title: "Residential Complex Cost Analysis",
+      title: "RCC Office Building",
       category: "Quantity Surveying",
-      description: "Detailed quantity takeoff and cost estimation for a 200-unit residential complex with comprehensive bill of quantities and pricing analysis.",
-      tools: ["MS Excel", "CostX", "Bluebeam", "MS Project"],
-      duration: "2 months",
-      teamSize: "3 engineers",
-      image: "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
+      description: "Interim Payment Certificate A detailed Interim Payment Certificate for an RCC office building project, encompassing civil, MEP, and finishing works. Included measurement verification, rate analysis, and valuation as per FIDIC-based contractual procedures.",
+      tools: ["Revit", "AutoCad","MS Excel"],
+      duration: "2 weeks",
+      teamSize: "6 engineers",
+      image: "images/project2.jpg"
     },
     {
-      title: "Water Treatment Plant Design",
-      category: "Environmental Engineering", 
-      description: "Design and planning of a municipal water treatment facility with capacity analysis, process design, and environmental impact assessment.",
-      tools: ["AutoCAD", "Bentley WaterCAD", "MS Project", "MATLAB"],
-      duration: "5 months",
-      teamSize: "5 engineers",
-      image: "https://images.pexels.com/photos/3651597/pexels-photo-3651597.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
-    },
-    {
-      title: "Bridge Construction Management",
+      title: "Sector Infrastructure Development",
       category: "Project Management",
-      description: "Complete project management for a concrete bridge construction including scheduling, resource allocation, and quality control procedures.",
-      tools: ["Primavera P6", "MS Project", "Procore", "AutoCAD"],
-      duration: "6 months", 
-      teamSize: "7 engineers",
-      image: "https://images.pexels.com/photos/2406949/pexels-photo-2406949.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
+      description: "Complete planning and scheduling of infrastructure works using Primavera P6, covering road networks, parking, and service lanes with defined dependencies and timelines for efficient project execution.",
+      tools: ["P6 Primavera", "Civil 3D", "MS Excel"],
+      duration: "3 weeks",
+      teamSize: "3 engineers",
+      image: "images/project3.jpg"
     },
     {
-      title: "Industrial Facility Planning",
-      category: "Site Development",
-      description: "Site planning and development for an industrial manufacturing facility including utilities design, site grading, and infrastructure layout.",
-      tools: ["Civil 3D", "SketchUp", "MS Project", "GIS"],
-      duration: "3 months",
-      teamSize: "4 engineers", 
-      image: "https://images.pexels.com/photos/1105766/pexels-photo-1105766.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
+      title: "Structural Design of a Commercial Building",
+      category: "Structural Engineering",
+      description: "Complete structural design of a multi-story commercial building. The scope included slab reinforcement detailing, beam layouts, and column coordination for load optimization. Advanced analysis ensured structural integrity, stability, and compliance with relevant design codes. Precision in detailing was emphasized to enhance constructability and cost efficiency.",
+      tools: ["ETABS", "AutoCAD"],
+      duration: "2 weeks",
+      teamSize: "5 engineers",
+      image: "images/project4.jpg"
+    },
+    {
+      title: "Detailed Quantity Estimation for a Roadworks Project",
+      category: "Quantity Surveying",
+      description: "A comprehensive quantity estimation and cost analysis for roadworks development. It covered itemized rate build-ups, material take-offs, and installation cost evaluations. Each component was analyzed using subcontractor quotations and verified against project specifications. The deliverable ensured transparent cost tracking, accurate budgeting, and efficient resource planning.",
+      tools: ["PlanSwift", "Civil 3D", "MS Excel"],
+      duration: "4 weeks",
+      teamSize: "7 engineers",
+      image: "images/project5.jpg"
+    },
+    {
+      title: "Dispute Proceedings and Arbitration Summary",
+      category: "Contract Management",
+      description: "Focused on preparing a detailed summary for an ongoing construction dispute arbitration. It included analysis of contract terms, variation orders, and correspondence to establish entitlement. Comprehensive documentation and evidence were organized to support the client's position effectively. The summary provided a clear, structured basis for negotiation and resolution in arbitration proceedings.",
+      tools: ["FIDIC Handbook"],
+      duration: "3 weeks",
+      teamSize: "4 engineers",
+      image: "images/project6.jpg"
     }
   ];
 
@@ -110,17 +110,13 @@ const Projects: React.FC = () => {
                 <p className="text-dark-600 mb-4 leading-relaxed">{project.description}</p>
                 
                 {/* Project Details */}
-                <div className="grid grid-cols-2 gap-4 mb-4">
+                <div className="grid grid-cols-1 gap-4 mb-4">
                   <div className="flex items-center text-sm text-dark-600 font-medium">
                     <Calendar className="h-4 w-4 mr-2 text-primary-600" />
                     {project.duration}
                   </div>
-                  <div className="flex items-center text-sm text-dark-600 font-medium">
-                    <Users className="h-4 w-4 mr-2 text-primary-600" />
-                    {project.teamSize}
-                  </div>
                 </div>
-                
+
                 {/* Tools Used */}
                 <div className="mb-4">
                   <div className="flex items-center text-sm text-dark-600 font-medium mb-2">
@@ -135,12 +131,6 @@ const Projects: React.FC = () => {
                     ))}
                   </div>
                 </div>
-                
-                {/* Action Button */}
-                <button className="flex items-center text-primary-700 font-semibold hover:text-primary-800 transition-colors duration-200">
-                  View Details
-                  <ExternalLink className="h-4 w-4 ml-2" />
-                </button>
               </div>
             </div>
           ))}

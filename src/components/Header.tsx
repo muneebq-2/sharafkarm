@@ -34,6 +34,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex items-center">
+            <img src="/images/logo_bgr.png" alt="Sharafkarm Logo" className="h-16 mr-4" />
             <div className="text-2xl font-bold">
               <span className="text-gradient">SHARAFKARM</span>
               <span className="text-dark-600 text-lg ml-2">Solutions</span>

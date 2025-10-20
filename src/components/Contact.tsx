@@ -5,6 +5,7 @@ const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -45,23 +46,36 @@ const Contact: React.FC = () => {
     return newErrors;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     const newErrors = validateForm();
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
     }
-    
-    // Simulate form submission
-    setIsSubmitted(true);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: '', email: '', message: '' });
-    }, 3000);
+
+    try {
+      const response = await fetch('https://formspree.io/f/xzzjonlv', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({ name: '', email: '', phone: '', message: '' });
+        }, 3000);
+      } else {
+        setErrors({ submit: 'Failed to send message. Please try again.' });
+      }
+    } catch (error) {
+      setErrors({ submit: 'Network error. Please check your connection and try again.' });
+    }
   };
 
   const contactInfo = [
@@ -147,6 +161,24 @@ const Contact: React.FC = () => {
                 </div>
 
                 <div>
+                  <label htmlFor="phone" className="block text-sm font-semibold text-dark-700 mb-2">
+                    Contact Number
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-300 shadow-soft focus:shadow-medium ${
+                      errors.phone ? 'border-red-300' : 'border-dark-300'
+                    }`}
+                    placeholder="Enter your contact number (optional)"
+                  />
+                  {errors.phone && <p className="mt-1 text-sm text-red-600">{errors.phone}</p>}
+                </div>
+
+                <div>
                   <label htmlFor="message" className="block text-sm font-semibold text-dark-700 mb-2">
                     Project Details *
                   </label>
@@ -167,10 +199,12 @@ const Contact: React.FC = () => {
                 <button
                   type="submit"
                   className="w-full btn-primary"
+                  disabled={isSubmitted}
                 >
-                  Send Message
+                  {isSubmitted ? 'Sending...' : 'Send Message'}
                   <Send className="ml-2 h-5 w-5" />
                 </button>
+                {errors.submit && <p className="mt-1 text-sm text-red-600">{errors.submit}</p>}
               </form>
             )}
           </div>
