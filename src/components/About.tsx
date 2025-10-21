@@ -23,7 +23,7 @@ const About: React.FC = () => {
       name: "Muhammad Abdullah",
       role: "Chief of Marketing",
       description: "Grows the client base, builds brand presence online (LinkedIn, website, etc.), and handles proposals and sales funnels.",
-      image: "/images/abdullah.jpg",
+      image: "/images/Abdullah.jpg",
       linkedin: "https://www.linkedin.com/in/muhammad-abdullah-b51503313?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       email: "abdullahjutt1027@gmail.com"
     },
@@ -31,7 +31,7 @@ const About: React.FC = () => {
       name: "Alisha Ahsan",
       role: "Head of Client Acquisition",
       description: "Sales funnel, cold outreach, client targeting.",
-      image: "/images/alisha.jpg",
+      image: "/images/Alisha.jpg",
       linkedin: "https://www.linkedin.com/in/alishaahsan/",
       email: "alishaahsan67@gmail.com"
     },
