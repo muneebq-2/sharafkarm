@@ -71,7 +71,7 @@ const About: React.FC = () => {
       name: "Hisham Khan",
       role: "Head Project Consultancy",
       description: "Provides expert input on project planning, scheduling (Primavera/MS Project), and technical consultancy.",
-      image: "/images/hisham.jpg",
+      image: "/images/Hisham.jpg",
       linkedin: "https://www.linkedin.com/in/hisham-khan-9a50b1365?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
       email: "hishamkhanma@gmail.com"
     },
