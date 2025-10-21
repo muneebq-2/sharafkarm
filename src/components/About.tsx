@@ -15,7 +15,7 @@ const About: React.FC = () => {
       name: "Khadija Javed",
       role: "Director of Services",
       description: "Manages daily workflow, team coordination, project delivery timelines, and service quality",
-      image: "/images/khadija.jpg",
+      image: "images/Khadija.jpg",
       linkedin: "http://linkedin.com/in/khadija-javed-083579347",
       email: "khadijajaved450@gmail.com"
     },
