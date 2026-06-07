@@ -58,7 +58,7 @@ const projects = [
       'Arbitration summary covering contract terms, variation orders, and evidence for construction dispute resolution.',
     tools: ['FIDIC Handbook'],
     duration: '3 weeks',
-    image: '/images/project6.jpg',
+    image: '/images/dispute_summary.png',
   },
 ];
 
