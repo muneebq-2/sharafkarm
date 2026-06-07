@@ -34,7 +34,7 @@ export const coreTeamMembers: TeamMember[] = [
     role: 'Head of Design',
     description:
       'Leads architectural, structural, and MEP design output (AutoCAD, Revit, etc.) and supervises design deliverables.',
-    image: '/images/Rayyan.jpg',
+    image: '/images/rayyan.jpg',
     email: 'rayyanamin2k19@gmail.com',
   },
   {
