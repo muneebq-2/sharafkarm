@@ -8,6 +8,7 @@ import { scrollToHash } from '../utils/navigation';
 
 const Careers = lazy(() => import('../pages/Careers'));
 const CareersAdmin = lazy(() => import('../pages/CareersAdmin'));
+const ApplicationForm = lazy(() => import('../pages/ApplicationForm'));
 import { loadBotpress } from '../utils/loadBotpress';
 
 const Layout: React.FC = () => {
@@ -41,6 +42,10 @@ const Layout: React.FC = () => {
         ) : pathname === '/careers/admin' ? (
           <Suspense fallback={<div className="pt-24" />}>
             <CareersAdmin />
+          </Suspense>
+        ) : pathname === '/careers/apply' ? (
+          <Suspense fallback={<div className="pt-24" />}>
+            <ApplicationForm />
           </Suspense>
         ) : pathname === '/careers' ? (
           <Suspense fallback={<div className="pt-24" />}>

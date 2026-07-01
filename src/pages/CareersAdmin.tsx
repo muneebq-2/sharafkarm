@@ -10,10 +10,30 @@ import {
   EyeOff,
   X,
   Lock,
+  FileText,
+  Mail,
+  Phone,
+  GraduationCap,
+  Briefcase,
+  RefreshCw,
 } from 'lucide-react';
 import type { Session } from '@supabase/supabase-js';
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
-import { JOB_TYPES, type Job } from '../data/careers';
+import {
+  JOB_TYPES,
+  APPLICATION_STATUSES,
+  CV_BUCKET,
+  type Job,
+  type Application,
+  type ApplicationStatus,
+} from '../data/careers';
+
+const STATUS_STYLES: Record<ApplicationStatus, string> = {
+  pending: 'bg-amber-100 text-amber-700',
+  reviewed: 'bg-blue-100 text-blue-700',
+  shortlisted: 'bg-green-100 text-green-700',
+  rejected: 'bg-red-100 text-red-700',
+};
 
 type JobForm = {
   title: string;
@@ -236,9 +256,238 @@ const JobModal: React.FC<{
   );
 };
 
+/* ----------------------------- Applications ------------------------------- */
+
+const ApplicationCard: React.FC<{
+  app: Application;
+  onStatusChange: (id: string, status: ApplicationStatus) => void;
+  onDelete: (app: Application) => void;
+}> = ({ app, onStatusChange, onDelete }) => {
+  const [cvLoading, setCvLoading] = useState(false);
+  const [cvError, setCvError] = useState<string | null>(null);
+  const [showLetter, setShowLetter] = useState(false);
+
+  const openCv = async () => {
+    if (!supabase) return;
+    setCvLoading(true);
+    setCvError(null);
+    // Private bucket -> generate a short-lived signed URL for the admin.
+    const { data, error } = await supabase.storage
+      .from(CV_BUCKET)
+      .createSignedUrl(app.cv_path, 120);
+    setCvLoading(false);
+    if (error || !data) {
+      setCvError('Could not open CV.');
+      return;
+    }
+    window.open(data.signedUrl, '_blank', 'noopener');
+  };
+
+  const submitted = new Date(app.created_at).toLocaleDateString(undefined, {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
+
+  return (
+    <div className="card p-5">
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+        <div className="min-w-0">
+          <div className="flex items-center gap-2.5 flex-wrap mb-1">
+            <h3 className="text-base font-bold text-dark-900">{app.full_name}</h3>
+            <span
+              className={`text-xs font-semibold px-2 py-0.5 rounded-full capitalize ${STATUS_STYLES[app.status]}`}
+            >
+              {app.status}
+            </span>
+          </div>
+          <p className="text-sm text-dark-500 inline-flex items-center gap-1.5 mb-0.5">
+            <Briefcase className="h-3.5 w-3.5" /> {app.job_title}
+          </p>
+          <p className="text-xs text-dark-400">Applied {submitted}</p>
+        </div>
+
+        <div className="flex flex-col items-stretch gap-2 shrink-0 w-full sm:w-auto">
+          <select
+            value={app.status}
+            onChange={(e) => onStatusChange(app.id, e.target.value as ApplicationStatus)}
+            className="rounded-lg border border-dark-200 px-3 py-2 text-sm bg-white capitalize focus:outline-none focus:ring-2 focus:ring-primary-500"
+          >
+            {APPLICATION_STATUSES.map((s) => (
+              <option key={s} value={s} className="capitalize">
+                {s}
+              </option>
+            ))}
+          </select>
+          <button
+            onClick={openCv}
+            disabled={cvLoading}
+            className="btn-secondary text-sm inline-flex items-center justify-center gap-2 disabled:opacity-60"
+          >
+            <FileText className="h-4 w-4" />
+            {cvLoading ? 'Opening…' : 'View CV'}
+          </button>
+        </div>
+      </div>
+
+      <div className="mt-4 pt-4 border-t border-dark-100 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-sm">
+        <a
+          href={`mailto:${app.email}`}
+          className="inline-flex items-center gap-2 text-dark-600 hover:text-primary-700 min-w-0"
+        >
+          <Mail className="h-4 w-4 shrink-0" />
+          <span className="truncate">{app.email}</span>
+        </a>
+        <a
+          href={`tel:${app.phone}`}
+          className="inline-flex items-center gap-2 text-dark-600 hover:text-primary-700"
+        >
+          <Phone className="h-4 w-4 shrink-0" />
+          {app.phone}
+        </a>
+        {(app.institute || app.semester || app.cgpa != null) && (
+          <p className="inline-flex items-center gap-2 text-dark-600 sm:col-span-2">
+            <GraduationCap className="h-4 w-4 shrink-0" />
+            {[app.institute, app.semester, app.cgpa != null ? `CGPA ${app.cgpa}` : null]
+              .filter(Boolean)
+              .join(' · ')}
+          </p>
+        )}
+      </div>
+
+      {app.cover_letter && (
+        <div className="mt-3">
+          <button
+            onClick={() => setShowLetter((v) => !v)}
+            className="text-sm font-medium text-primary-700 hover:text-primary-800"
+          >
+            {showLetter ? 'Hide cover letter' : 'Show cover letter'}
+          </button>
+          {showLetter && (
+            <p className="mt-2 text-sm text-dark-600 leading-relaxed whitespace-pre-wrap bg-dark-50 rounded-lg p-4">
+              {app.cover_letter}
+            </p>
+          )}
+        </div>
+      )}
+
+      <div className="mt-3 flex items-center justify-between">
+        {cvError ? <span className="text-xs text-red-600">{cvError}</span> : <span />}
+        <button
+          onClick={() => onDelete(app)}
+          className="text-xs text-dark-400 hover:text-red-600 inline-flex items-center gap-1.5 transition-colors"
+        >
+          <Trash2 className="h-3.5 w-3.5" />
+          Delete
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const ApplicationsPanel: React.FC = () => {
+  const [apps, setApps] = useState<Application[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [filter, setFilter] = useState<'all' | ApplicationStatus>('all');
+
+  const load = useCallback(async () => {
+    if (!supabase) return;
+    setLoading(true);
+    const { data, error: fetchError } = await supabase
+      .from('applications')
+      .select('*')
+      .order('created_at', { ascending: false });
+    if (fetchError) {
+      setError(fetchError.message);
+    } else {
+      setApps((data as Application[]) ?? []);
+      setError(null);
+    }
+    setLoading(false);
+  }, []);
+
+  useEffect(() => {
+    load();
+  }, [load]);
+
+  const changeStatus = async (id: string, status: ApplicationStatus) => {
+    if (!supabase) return;
+    setApps((prev) => prev.map((a) => (a.id === id ? { ...a, status } : a))); // optimistic
+    await supabase.from('applications').update({ status }).eq('id', id);
+  };
+
+  const remove = async (app: Application) => {
+    if (!supabase) return;
+    if (!window.confirm(`Delete application from “${app.full_name}”? This cannot be undone.`)) return;
+    await supabase.storage.from(CV_BUCKET).remove([app.cv_path]);
+    await supabase.from('applications').delete().eq('id', app.id);
+    load();
+  };
+
+  const visible = filter === 'all' ? apps : apps.filter((a) => a.status === filter);
+
+  return (
+    <div>
+      <div className="flex flex-wrap items-center gap-2 mb-6">
+        {(['all', ...APPLICATION_STATUSES] as const).map((f) => (
+          <button
+            key={f}
+            onClick={() => setFilter(f)}
+            className={`px-3 py-1.5 rounded-full text-xs font-semibold capitalize transition-colors ${
+              filter === f
+                ? 'bg-primary-600 text-white'
+                : 'bg-dark-100 text-dark-600 hover:bg-dark-200'
+            }`}
+          >
+            {f}
+            {f !== 'all' && (
+              <span className="ml-1.5 opacity-70">
+                {apps.filter((a) => a.status === f).length}
+              </span>
+            )}
+          </button>
+        ))}
+        <button
+          onClick={load}
+          className="ml-auto p-2 rounded-lg text-dark-500 hover:text-primary-700 hover:bg-primary-50 transition-colors"
+          aria-label="Refresh"
+          title="Refresh"
+        >
+          <RefreshCw className="h-4 w-4" />
+        </button>
+      </div>
+
+      {loading ? (
+        <p className="text-dark-500 text-sm">Loading…</p>
+      ) : error ? (
+        <p className="text-red-600 text-sm">{error}</p>
+      ) : visible.length === 0 ? (
+        <div className="card p-10 text-center">
+          <p className="text-dark-600">
+            {filter === 'all' ? 'No applications yet.' : `No ${filter} applications.`}
+          </p>
+        </div>
+      ) : (
+        <div className="space-y-4">
+          {visible.map((app) => (
+            <ApplicationCard
+              key={app.id}
+              app={app}
+              onStatusChange={changeStatus}
+              onDelete={remove}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
 /* ------------------------------- Dashboard -------------------------------- */
 
 const Dashboard: React.FC<{ email: string | undefined }> = ({ email }) => {
+  const [tab, setTab] = useState<'jobs' | 'applications'>('jobs');
   const [jobs, setJobs] = useState<Job[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -293,16 +542,18 @@ const Dashboard: React.FC<{ email: string | undefined }> = ({ email }) => {
 
   return (
     <div>
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
         <div>
           <h1 className="text-2xl sm:text-3xl font-bold text-dark-900">Careers admin</h1>
           <p className="text-dark-500 text-sm mt-1">Signed in as {email}</p>
         </div>
         <div className="flex items-center gap-3">
-          <button onClick={openNew} className="btn-primary text-sm inline-flex items-center gap-2">
-            <Plus className="h-4 w-4" />
-            New posting
-          </button>
+          {tab === 'jobs' && (
+            <button onClick={openNew} className="btn-primary text-sm inline-flex items-center gap-2">
+              <Plus className="h-4 w-4" />
+              New posting
+            </button>
+          )}
           <button
             onClick={signOut}
             className="btn-secondary text-sm inline-flex items-center gap-2"
@@ -313,7 +564,28 @@ const Dashboard: React.FC<{ email: string | undefined }> = ({ email }) => {
         </div>
       </div>
 
-      {loading ? (
+      <div className="flex items-center gap-1 mb-8 border-b border-dark-100">
+        {([
+          { key: 'jobs', label: 'Job Postings' },
+          { key: 'applications', label: 'Applications' },
+        ] as const).map((t) => (
+          <button
+            key={t.key}
+            onClick={() => setTab(t.key)}
+            className={`px-4 py-2.5 text-sm font-semibold border-b-2 -mb-px transition-colors ${
+              tab === t.key
+                ? 'border-primary-600 text-primary-700'
+                : 'border-transparent text-dark-500 hover:text-dark-800'
+            }`}
+          >
+            {t.label}
+          </button>
+        ))}
+      </div>
+
+      {tab === 'applications' ? (
+        <ApplicationsPanel />
+      ) : loading ? (
         <p className="text-dark-500 text-sm">Loading…</p>
       ) : error ? (
         <p className="text-red-600 text-sm">{error}</p>
