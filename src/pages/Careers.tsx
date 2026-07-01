@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from '../router';
-import { ArrowLeft, MapPin, Briefcase, Mail } from 'lucide-react';
+import { ArrowLeft, MapPin, Briefcase } from 'lucide-react';
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import type { Job } from '../data/careers';
 
@@ -102,15 +102,12 @@ const Careers: React.FC = () => {
                     </div>
                     <p className="text-dark-600 text-sm leading-relaxed">{job.description}</p>
                   </div>
-                  <a
-                    href={`mailto:${APPLY_EMAIL}?subject=${encodeURIComponent(
-                      `Application: ${job.title}`
-                    )}`}
+                  <Link
+                    to={`/careers/apply?job=${job.id}`}
                     className="btn-primary text-sm inline-flex items-center gap-2 shrink-0 self-start"
                   >
-                    <Mail className="h-4 w-4" />
                     Apply
-                  </a>
+                  </Link>
                 </div>
               </article>
             ))}
