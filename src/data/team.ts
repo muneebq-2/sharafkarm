@@ -30,11 +30,13 @@ export const coreTeamMembers: TeamMember[] = [
     email: 'khadijajaved450@gmail.com',
   },
   {
-    name: 'Rayan Amin',
+    name: 'Rayyan Amin',
     role: 'Head of Design',
     description:
       'Leads architectural, structural, and MEP design output (AutoCAD, Revit, etc.) and supervises design deliverables.',
     image: '/images/rayyan.jpg',
+    linkedin:
+      'https://www.linkedin.com/in/rayyan-amin-70a04a250?utm_source=share_via&utm_content=profile&utm_medium=member_android',
     email: 'rayyanamin2k19@gmail.com',
   },
   {
