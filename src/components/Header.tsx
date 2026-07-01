@@ -18,6 +18,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection = '' }) => {
     { id: 'about', label: 'About', type: 'section' as const },
     { id: 'blog', label: 'Blog', type: 'section' as const },
     { id: 'team', label: 'Team', type: 'page' as const, path: '/team' },
+    { id: 'careers', label: 'Careers', type: 'page' as const, path: '/careers' },
     { id: 'contact', label: 'Contact', type: 'section' as const },
   ];
 
@@ -30,8 +31,8 @@ const Header: React.FC<HeaderProps> = ({ activeSection = '' }) => {
     scrollToSection(sectionId);
   };
 
-  const isActive = (id: string, type: 'section' | 'page') => {
-    if (type === 'page') return location.pathname === '/team';
+  const isActive = (id: string, type: 'section' | 'page', path?: string) => {
+    if (type === 'page') return location.pathname === path;
     return location.pathname === '/' && activeSection === id;
   };
 
@@ -61,7 +62,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection = '' }) => {
                   key={item.id}
                   to={item.path!}
                   className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                    isActive(item.id, 'page')
+                    isActive(item.id, 'page', item.path)
                       ? 'text-primary-700 bg-primary-50'
                       : 'text-dark-600 hover:text-primary-700 hover:bg-primary-50/60'
                   }`}
@@ -109,7 +110,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection = '' }) => {
                     to={item.path!}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`block w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium ${
-                      isActive(item.id, 'page')
+                      isActive(item.id, 'page', item.path)
                         ? 'text-primary-700 bg-primary-50'
                         : 'text-dark-600 hover:bg-primary-50'
                     }`}
