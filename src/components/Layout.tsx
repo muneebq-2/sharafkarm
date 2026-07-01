@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { useLocation } from '../router';
 import Header from './Header';
 import Footer from './Footer';
 import Home from '../pages/Home';
 import Team from '../pages/Team';
 import { scrollToHash } from '../utils/navigation';
+
+const Careers = lazy(() => import('../pages/Careers'));
+const CareersAdmin = lazy(() => import('../pages/CareersAdmin'));
 import { loadBotpress } from '../utils/loadBotpress';
 
 const Layout: React.FC = () => {
@@ -35,6 +38,14 @@ const Layout: React.FC = () => {
       <div className="flex-1">
         {pathname === '/team' ? (
           <Team />
+        ) : pathname === '/careers/admin' ? (
+          <Suspense fallback={<div className="pt-24" />}>
+            <CareersAdmin />
+          </Suspense>
+        ) : pathname === '/careers' ? (
+          <Suspense fallback={<div className="pt-24" />}>
+            <Careers />
+          </Suspense>
         ) : (
           <Home onSectionChange={setActiveSection} />
         )}
